@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>JavaScript Robot Lab — ステージ1〜10（iPad対応）</title>
+<title>JavaScript Robot Lab — ステージ1〜20（iPhone・iPad対応）</title>
 <style>
 :root{color-scheme:dark;--bg:#071421;--panel:#102235;--line:#264258;--text:#edf5fc;--muted:#9db4c6;--aqua:#4ee1c0;--gold:#ffcd6e;--red:#ff8f93}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top right,#17334d 0%,var(--bg) 58%);color:var(--text);font-family:system-ui,-apple-system,'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;line-height:1.55}.wrap{max-width:1110px;margin:auto;padding:22px 16px 38px}.head{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;margin-bottom:16px}.head h1{font-size:clamp(23px,3vw,32px);margin:0;font-weight:800;letter-spacing:.01em}.head p{margin:4px 0;color:var(--muted);font-size:14px}.chip{border:1px solid #427b78;color:#aef5e1;padding:5px 12px;border-radius:99px;font-size:12px;white-space:nowrap}.levels{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:16px}.levels button{flex:1;min-width:75px;color:#b8cede;border:1px solid var(--line);background:#132a3f;border-radius:11px;padding:9px 12px;cursor:pointer;font:inherit;font-size:13px}.levels button.active{background:#176a6c;color:#fff;border-color:#5fe6cd}.levels button.complete:after{content:' ★';color:var(--gold)}.layout{display:grid;grid-template-columns:minmax(310px,0.92fr) minmax(320px,1.08fr);gap:16px}.panel{background:rgba(16,34,53,.95);border:1px solid #2b4356;border-radius:17px;padding:17px;box-shadow:0 18px 55px #020d17a6}.panel h2{margin:0 0 7px;font-size:20px}.small{font-size:13px;color:var(--muted)}.board{display:grid;gap:4px;margin:18px auto;max-width:410px;aspect-ratio:7/6;grid-template-columns:repeat(7,minmax(0,1fr));grid-template-rows:repeat(6,minmax(0,1fr));padding:7px;border:1px solid #315064;border-radius:13px;background:#071725}.tile{border-radius:6px;background:#1a3546;display:flex;align-items:center;justify-content:center;position:relative;font-size:clamp(18px,2.5vw,30px);user-select:none}.tile.wall{background:repeating-linear-gradient(135deg,#38566b 0 8px,#314a5c 8px 16px)}.tile.goal{box-shadow:inset 0 0 0 2px #59daba;background:#174a4b}.tile.gem{color:var(--gold)}.tile .robot{display:flex;align-items:center;justify-content:center;width:88%;height:88%;border-radius:10px;background:#b9f4e6;color:#07333a;box-shadow:0 0 17px #61d7bd66;font-size:clamp(16px,2.4vw,28px);font-weight:bold}.tile .arrow{position:absolute;top:-6px;right:-3px;color:#091e2a;background:var(--gold);border-radius:7px;font-size:11px;padding:1px 4px}.legend{display:flex;gap:13px;justify-content:center;flex-wrap:wrap;color:var(--muted);font-size:12px}.status{border-radius:12px;border:1px solid #34556b;background:#0c2030;padding:11px 12px;font-size:14px;min-height:47px;margin:13px 0;color:#bfeade}.status.bad{color:#ffd1d3;border-color:#82474f}.status.good{color:#bff5b5;border-color:#448b63}.codearea{width:100%;min-height:280px;background:#061622;color:#d5f7ef;border:1px solid #385e71;border-radius:12px;resize:vertical;outline:none;padding:15px;font:15px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;tab-size:2}.codearea:focus{border-color:var(--aqua);box-shadow:0 0 0 2px #4ee1c025}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.actions button,.hintbtn{cursor:pointer;font:inherit;border:1px solid #3d6776;background:#183347;color:var(--text);padding:9px 14px;border-radius:10px}.actions .main{background:#26a78f;border-color:#4cddbf;color:#032b2c;font-weight:800}.actions button:hover,.hintbtn:hover{filter:brightness(1.14)}.hint{margin-top:10px;padding:11px 12px;background:#122c3f;border-left:3px solid var(--gold);border-radius:6px;font-size:13px;color:#d9e5ed;display:none}.hint.show{display:block}.help{margin-top:16px;border-top:1px solid #2d485b;padding-top:12px}.help code,.small code{color:#7decd4;background:#092735;border-radius:5px;padding:2px 5px}.helpgrid{display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:12px;color:#cfdfeb}.helpgrid div{padding:6px 8px;background:#0b1e2b;border-radius:6px}.footer{margin:16px 0 0;font-size:12px;color:#869fae}.step{font-variant-numeric:tabular-nums;font-size:12px;color:#b3c7d6;margin-left:auto;align-self:center}@media(max-width:740px){.layout{grid-template-columns:1fr}.board{max-width:400px}.codearea{min-height:240px}.wrap{padding:12px}.panel{padding:14px}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
@@ -15,16 +15,56 @@
 html{-webkit-text-size-adjust:100%} body{overscroll-behavior-y:contain}button{touch-action:manipulation;-webkit-tap-highlight-color:transparent;min-height:44px}textarea,input{font-size:16px!important}.quick-title{font-size:13px;color:var(--muted);margin-bottom:7px}.quickbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}.quickbar button{background:#244359;color:#e0fff6;border:1px solid #416d78;border-radius:10px;padding:9px 11px;font:600 13px ui-monospace,monospace}.board{width:100%;max-width:410px;aspect-ratio:7/6;min-width:0}.tile{min-width:0;min-height:0;font-size:clamp(17px,3.6vw,28px)}.tile .robot{font-size:clamp(17px,3.4vw,27px)}.actions button{flex:1 1 auto}.codearea{min-height:270px;display:block;caret-color:#4ee1c0;-webkit-user-select:text;user-select:text}.levels button{min-height:48px}.panel{min-width:0}
 @media(min-width:741px) and (max-width:1100px){.layout{grid-template-columns:1fr 1fr}.board{max-width:100%}.panel{padding:13px}}
 @media(max-width:740px){.wrap{padding:calc(10px + env(safe-area-inset-top)) 10px calc(20px + env(safe-area-inset-bottom))}.layout{gap:12px}.levels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.levels button{min-width:0}.panel{padding:12px}.board{margin:12px auto}.codearea{min-height:220px}.actions .main{flex-basis:100%;font-size:17px;min-height:50px}}
+
+/* Stage 11–20: roughly 10% tighter visual scale, preserving 44px touch targets */
+:root{--compact:0.9}
+.wrap{max-width:1010px;padding:18px 14px 30px}
+.head{margin-bottom:11px}.head h1{font-size:clamp(21px,2.8vw,29px)}.head p{font-size:13px}
+.levels{gap:6px;margin-bottom:12px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr))}
+.levels button{display:flex;gap:5px;align-items:center;justify-content:center;min-width:0;min-height:44px;padding:6px 7px;font-size:12px;line-height:1.2;overflow:hidden}
+.levels .level-no{font-weight:800}.levels .level-name{overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.layout{gap:14px}.panel{padding:15px;border-radius:15px}.panel h2{font-size:18px}
+.board{max-width:370px;padding:6px;gap:3px;margin:14px auto}
+.tile{font-size:clamp(17px,2.4vw,27px)}.tile .robot{font-size:clamp(16px,2.3vw,25px)}
+.legend{gap:10px}.status{margin:10px 0;min-height:44px;padding:9px 11px}
+.codearea{min-height:246px;padding:13px;font-size:14px;line-height:1.55}
+.actions{gap:7px;margin-top:10px}.actions button,.hintbtn,.nextbtn{padding:8px 11px;min-height:44px}
+.lesson{padding:8px 10px;font-size:12px;margin:8px 0 2px}
+.quickbar{gap:6px;margin-bottom:10px}.quickbar button{min-height:44px;padding:7px 10px}
+.help{margin-top:12px}.hint{margin-top:9px}
+.stage-action-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.nextbtn{cursor:pointer;font:inherit;border:1px solid #49c9b3;background:#155349;color:#c9fff0;border-radius:10px;font-weight:700}
+.mobile-stage-picker{display:none}
+[hidden]{display:none!important}
+@media(max-width:740px){
+  .wrap{padding:calc(8px + env(safe-area-inset-top)) 9px calc(16px + env(safe-area-inset-bottom))}
+  .head{gap:5px;margin-bottom:7px}.head h1{font-size:21px}.head p{font-size:12px;margin:2px 0}.chip{font-size:11px;padding:3px 9px}
+  .mobile-stage-picker{display:flex;align-items:center;gap:9px;margin:9px 0}
+  .mobile-stage-picker label{font-size:12px;color:var(--muted);white-space:nowrap}
+  .mobile-stage-picker select{flex:1;min-width:0;max-width:100%;background:#183347;color:var(--text);border:1px solid #3d6776;border-radius:10px;padding:9px 10px;min-height:44px;font:inherit;font-size:14px}
+  .levels{display:none}.layout{grid-template-columns:1fr;gap:10px}.panel{padding:11px;border-radius:13px}
+  .panel h2{font-size:17px}.small{font-size:12px}
+  .board{width:90%;max-width:340px;min-width:0;margin:9px auto;gap:3px;padding:5px}
+  .legend{font-size:11px;gap:8px}.status{font-size:12px;min-height:42px;margin:9px 0;padding:7px 9px}
+  .codearea{min-height:202px;padding:10px;font-size:16px!important;line-height:1.45}
+  .quickbar{flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-x:contain;padding-bottom:6px;-webkit-overflow-scrolling:touch}
+  .quickbar button{flex:0 0 auto;white-space:nowrap;font-size:12px}
+  .actions{gap:6px}.actions .main{flex-basis:100%;min-height:48px}
+  .actions button:not(.main){flex:1 1 calc(50% - 6px);font-size:12px;padding:7px 6px}
+  .helpgrid{grid-template-columns:1fr 1fr}.helpgrid div{font-size:11px;padding:6px}
+  .hintbtn,.nextbtn{font-size:12px}
+}
+@media(max-width:380px){.board{max-width:305px}.head h1{font-size:20px}.panel{padding:9px}}
 </style>
 </head>
 <body>
 <main class="wrap">
-<header class="head"><div><h1>🤖 JavaScript Robot Lab</h1><p>JavaScriptの命令を入力して、ロボットを宝石とゴールへ導こう。</p></div><div class="chip">iPad対応・全10ステージ</div></header>
-<nav class="levels" aria-label="ステージ選択" id="levels"></nav>
+<header class="head"><div><h1>🤖 JavaScript Robot Lab</h1><p>JavaScriptの命令を入力して、ロボットを宝石とゴールへ導こう。</p></div><div class="chip">iPhone・iPad対応 · <span id="progressText">クリア 0/20</span></div></header>
+<div class="mobile-stage-picker"><label for="stagePicker">ステージを選択</label><select id="stagePicker" aria-label="ステージを選択"></select></div><nav class="levels" aria-label="ステージ選択" id="levels"></nav>
 <div class="layout">
-<section class="panel" aria-label="ゲーム画面"><h2 id="stageTitle"></h2><div id="stageDesc" class="small"></div><div id="lesson" class="lesson" hidden></div><div id="board" class="board" aria-label="7列6行のフィールド"></div><div class="legend"><span>🤖 ロボット</span><span>💎 宝石</span><span>🏁 ゴール</span><span>▦ 壁</span></div><div id="status" class="status" role="status" aria-live="polite">ステージを選択してコードを実行してください。</div><button class="hintbtn" id="hintButton" type="button">💡 ヒントを見る</button><div id="hint" class="hint"></div></section>
-<section class="panel" aria-label="プログラム編集"><h2>JavaScriptを入力</h2><p class="small" style="margin:4px 0 12px">下の命令を書き換えて<strong>▶ 実行</strong>。正しく動けば星がつきます。</p><div class="quick-title">タップで命令を追加できます</div><div class="quickbar" aria-label="命令入力ショートカット"><button type="button" data-insert="move();">move();</button><button type="button" data-insert="turnLeft();">turnLeft();</button><button type="button" data-insert="turnRight();">turnRight();</button><button type="button" data-insert="collect();">collect();</button><button type="button" data-insert="for (let i = 0; i < 3; i++) {\n  move();\n}">for ループ</button><button type="button" data-insert="if (frontIsClear()) {\n  move();\n}">if 文</button><button type="button" data-insert="if (onGem()) {\n  collect();\n}">宝石なら拾う</button><button type="button" data-insert="while (frontIsClear()) {\n  move();\n}">while 文</button><button type="button" data-insert="if (onGem()) {\n  collect();\n} else {\n  move();\n}">if / else</button><button type="button" data-insert="function walk() {\n  move();\n}\nwalk();">function</button></div><textarea spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" id="code" class="codearea" aria-label="JavaScriptコード"></textarea><div class="actions"><button class="main" id="run" type="button">▶ 実行</button><button id="step" type="button">↪ 1手ずつ</button><button id="reset" type="button">↺ リセット</button><button id="saveFile" type="button">⬇ セーブデータ</button><button id="loadFile" type="button">⬆ 読み込み</button><input id="loadInput" type="file" accept=".json,application/json" hidden><span id="counter" class="step">0 ステップ</span></div><div class="help"><div style="margin-bottom:8px;font-weight:700;font-size:14px">命令早見表</div><div class="helpgrid"><div><code>move();</code> 1マス進む</div><div><code>turnLeft();</code> 左を向く</div><div><code>turnRight();</code> 右を向く</div><div><code>collect();</code> 宝石を拾う</div><div><code>frontIsClear()</code> 前が空いている？</div><div><code>onGem()</code> 宝石の上？</div><div><code>while (...)</code> 条件中くり返す</div><div><code>function name()</code> 自分の命令を作る</div></div><p class="small">繰り返しは <code>for (...) { ... }</code> と <code>while (frontIsClear()) { ... }</code>、条件分岐は <code>if (...) { ... } else { ... }</code> が使えます。</p><p class="small">自分の関数も <code>function walk() { move(); }</code> と定義して <code>walk();</code> で呼び出せます。ゲーム用の安全な学習環境のため、一部のJavaScript構文だけを使えます。</p></div></section>
-</div><p class="footer">iPadで開けない場合は、HTMLをSafariで直接開くか、GitHub Pagesで公開したURLからアクセスしてください。ChatGPT内のファイルプレビューではJavaScriptを実行できない場合があります。セーブデータは「⬇ セーブデータ」でファイルに保存できます。</p><p class="footer">この教材はJavaScriptの基本構文を練習するためのものです。使える関数と構文を絞った学習用実行環境です。進捗・編集内容は可能な場合、このブラウザに保存されます。</p>
+<section class="panel" aria-label="ゲーム画面"><h2 id="stageTitle"></h2><div id="stageDesc" class="small"></div><div id="lesson" class="lesson" hidden></div><div id="board" class="board" aria-label="7列6行のフィールド"></div><div class="legend"><span>🤖 ロボット</span><span>💎 宝石</span><span>🏁 ゴール</span><span>▦ 壁</span></div><div id="status" class="status" role="status" aria-live="polite">ステージを選択してコードを実行してください。</div><div class="stage-action-row"><button class="hintbtn" id="hintButton" type="button">💡 ヒントを見る</button><button class="nextbtn" id="nextStage" type="button" hidden>次のステージ →</button></div><div id="hint" class="hint"></div></section>
+<section class="panel" aria-label="プログラム編集"><h2>JavaScriptを入力</h2><p class="small" style="margin:4px 0 12px">下の命令を書き換えて<strong>▶ 実行</strong>。正しく動けば星がつきます。</p><div class="quick-title">タップで命令を追加できます</div><div class="quickbar" aria-label="命令入力ショートカット"><button type="button" data-insert="move();">move();</button><button type="button" data-insert="turnLeft();">turnLeft();</button><button type="button" data-insert="turnRight();">turnRight();</button><button type="button" data-insert="collect();">collect();</button><button type="button" data-insert="for (let i = 0; i < 3; i++) {\n  move();\n}">for ループ</button><button type="button" data-insert="if (frontIsClear()) {\n  move();\n}">if 文</button><button type="button" data-insert="if (onGem()) {\n  collect();\n}">宝石なら拾う</button><button type="button" data-insert="while (frontIsClear()) {\n  move();\n}">while 文</button><button type="button" data-insert="if (onGem()) {\n  collect();\n} else {\n  move();\n}">if / else</button><button type="button" data-insert="function walk() {\n  move();\n}\nwalk();">function</button><button type="button" data-insert="let steps = 3;">let 変数</button><button type="button" data-insert="function walk(n) {\n  for (let i = 0; i < n; i++) {\n    move();\n  }\n}\nwalk(3);">関数の引数</button><button type="button" data-insert="const route = [1, 2, 3];">配列</button></div><textarea spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" id="code" class="codearea" aria-label="JavaScriptコード"></textarea><div class="actions"><button class="main" id="run" type="button">▶ 実行</button><button id="step" type="button">↪ 1手ずつ</button><button id="reset" type="button">↺ リセット</button><button id="saveFile" type="button">⬇ セーブデータ</button><button id="loadFile" type="button">⬆ 読み込み</button><input id="loadInput" type="file" accept=".json,application/json" hidden><span id="counter" class="step">0 ステップ</span></div><div class="help"><div style="margin-bottom:8px;font-weight:700;font-size:14px">命令早見表</div><div class="helpgrid"><div><code>move();</code> 1マス進む</div><div><code>turnLeft();</code> 左を向く</div><div><code>turnRight();</code> 右を向く</div><div><code>collect();</code> 宝石を拾う</div><div><code>frontIsClear()</code> 前が空いている？</div><div><code>onGem()</code> 宝石の上？</div><div><code>while (...)</code> 条件中くり返す</div><div><code>function name()</code> 自分の命令を作る</div><div><code>leftIsClear()</code> 左が空いている？</div><div><code>rightIsClear()</code> 右が空いている？</div><div><code>let n = 4;</code> 変数を作る</div><div><code>n++;</code> 数を1増やす</div><div><code>function walk(n)</code> 引数付き関数</div><div><code>[1, 2, 3]</code> 配列</div></div><p class="small">繰り返しは <code>for (...) { ... }</code> と <code>while (frontIsClear()) { ... }</code>、条件分岐は <code>if (...) { ... } else { ... }</code> が使えます。</p><p class="small">自分の関数も <code>function walk() { move(); }</code> と定義して <code>walk();</code> で呼び出せます。ゲーム用の安全な学習環境のため、JavaScriptの基本構文の一部に対応しています（すべてのJavaScriptではありません）。</p></div></section>
+</div><p class="footer">iPhone／iPadで開けない場合は、HTMLをSafariで直接開くか、GitHub Pagesで公開したURLからアクセスしてください。ChatGPT内のファイルプレビューではJavaScriptを実行できない場合があります。セーブデータは「⬇ セーブデータ」でファイルに保存できます。</p><p class="footer">この教材はJavaScriptの基本構文を練習するためのものです。使える関数と構文を絞った学習用実行環境です。進捗・編集内容は可能な場合、このブラウザに保存されます。</p>
 </main>
 <script>
 'use strict';
@@ -39,7 +79,17 @@ const stages=[
  {name:"whileで進み続けよう",desc:"<b>while文</b>で、前に壁があるまで進もう。途中の宝石2個も拾ってゴールへ。",start:[0, 2, 1],goal:[4, 2],gems:[[2, 2], [4, 2]],walls:[[5, 2]],hint:"while (frontIsClear()) { move(); } で壁の手前まで進めます。途中で if (onGem()) { collect(); } を組み合わせよう。",lesson:"whileは「条件がtrueの間、何度でも繰り返す」という意味です。条件が変化する命令を中に入れることが大切です。",code:"// 壁が見つかるまで前進しよう！\nwhile (frontIsClear()) {\n  move();\n  // 宝石があったら拾おう\n}"},
  {name:"if / elseの二択",desc:"<b>if / else</b> を使って、宝石の上なら拾い、それ以外では進もう。3つの宝石を集めて右端へ。",start:[0, 1, 1],goal:[6, 1],gems:[[1, 1], [3, 1], [6, 1]],walls:[],hint:"1回の動作で「宝石なら collect()、そうでなければ move()」を選ぶと効率的。forループを9回にして試そう。",lesson:"if が成り立つときは if の中を、そうでないときは else の中を実行します。",code:"// 全部で9回、判断して行動しよう\nfor (let i = 0; i < 9; i++) {\n  if (onGem()) {\n    // 宝石を拾う\n  } else {\n    // 前進する\n  }\n}"},
  {name:"自分の関数を作ろう",desc:"<b>function</b> で「3マス進んで宝石を拾う」命令を作り、<b>2回使い回そう</b>。右へ3マス、下へ3マス進む。",start:[0, 0, 1],goal:[3, 3],gems:[[1, 0], [3, 0], [3, 1], [3, 3]],walls:[[4, 0], [4, 1], [1, 2], [2, 2]],hint:"function walkThree() { for (let i = 0; i < 3; i++) { move(); if (onGem()) { collect(); } } } のように関数を定義。walkThree(); turnRight(); walkThree(); の順に呼び出そう。",lesson:"function 名前() { ... } で命令のまとまりを作れます。名前(); と書くたびに同じ処理が動きます。",code:"// 同じ作業を何度も使える関数にしよう\nfunction walkThree() {\n  for (let i = 0; i < 3; i++) {\n    move();\n    // 宝石があれば拾う\n  }\n}\n\nwalkThree();\n// 向きを変えて、もう一度関数を呼ぼう"},
- {name:"最終ミッション：迷路探検",desc:"<b>while + if + function</b> を総動員。通路の端まで進む関数を作り、曲がり角で向きを変えて6つの宝石を集めよう。",start:[0, 5, 1],goal:[6, 0],gems:[[1, 5], [1, 2], [3, 2], [5, 2], [5, 0], [6, 0]],walls:[[2, 5], [1, 1], [6, 2], [3, 3], [4, 3], [3, 4], [0, 3], [2, 3], [6, 4]],hint:"通路に沿って「右→上→右→上→右」の順。function followCorridor() に while (frontIsClear()) と if (onGem()) をまとめて、曲がるたびに呼び出そう。",lesson:"ここでは自分で関数を組み合わせ、同じ処理を再利用する考え方（アルゴリズム）を練習します。",code:"// 通路の先まで進み、宝石があれば拾う\nfunction followCorridor() {\n  while (frontIsClear()) {\n    move();\n    if (onGem()) {\n      collect();\n    }\n  }\n}\n\nfollowCorridor();\n// ここから先の曲がり角を攻略しよう"}
+ {name:"最終ミッション：迷路探検",desc:"<b>while + if + function</b> を総動員。通路の端まで進む関数を作り、曲がり角で向きを変えて6つの宝石を集めよう。",start:[0, 5, 1],goal:[6, 0],gems:[[1, 5], [1, 2], [3, 2], [5, 2], [5, 0], [6, 0]],walls:[[2, 5], [1, 1], [6, 2], [3, 3], [4, 3], [3, 4], [0, 3], [2, 3], [6, 4]],hint:"通路に沿って「右→上→右→上→右」の順。function followCorridor() に while (frontIsClear()) と if (onGem()) をまとめて、曲がるたびに呼び出そう。",lesson:"ここでは自分で関数を組み合わせ、同じ処理を再利用する考え方（アルゴリズム）を練習します。",code:"// 通路の先まで進み、宝石があれば拾う\nfunction followCorridor() {\n  while (frontIsClear()) {\n    move();\n    if (onGem()) {\n      collect();\n    }\n  }\n}\n\nfollowCorridor();\n// ここから先の曲がり角を攻略しよう"},
+ {name:"二重ループで四角形",desc:"二重の <b>for</b> で四角形を一周。4つの角の宝石を全部集め、出発地点へ戻ろう。",start:[1, 1, 1],goal:[1, 1],gems:[[3, 1], [3, 3], [1, 3], [1, 1]],walls:[[2, 2]],lesson:"for の中にもう一つ for を書くと、繰り返しを組み合わせられます。",hint:"外側は4回（4辺）、内側は2回（1辺2マス）。各マスで if (onGem()) を使い、辺の終わりで turnRight()。",code:"// 四角形を一周しよう\nfor (let side = 0; side < 4; side++) {\n  for (let i = 0; i < 2; i++) {\n    move();\n    // 宝石があったら回収\n  }\n  // 右に曲がろう\n}"},
+ {name:"!（NOT）で壁を判断",desc:"<b>!</b> を使って、前に進めないときに向きを変えよう。最後は上にあるゴールへ。",start:[0, 4, 1],goal:[4, 2],gems:[[2, 4], [4, 4], [4, 2]],walls:[[5, 4], [3, 3], [3, 2]],lesson:"! は真偽を逆にする記号。!frontIsClear() は「前が空いていない＝壁がある」を意味します。",hint:"まず while(frontIsClear()) で右へ進んで宝石を拾う。そのあと if (!frontIsClear()) { turnLeft(); } で上を向き、2マス進みます。",code:"// 前が開いているあいだは前進\nwhile (frontIsClear()) {\n  move();\n  if (onGem()) { collect(); }\n}\n\nif (!frontIsClear()) {\n  // 左を向こう\n}\n// 上へ2マス進もう"},
+ {name:"&&（AND）の条件",desc:"2つの条件を <b>&&</b> でつなぎ、宝石があり、さらに前も安全なときだけ拾おう。",start:[0, 4, 1],goal:[5, 4],gems:[[1, 4], [3, 4]],walls:[[6, 4]],lesson:"A && B は「AもBもtrue」のときだけtrueになります。例: onGem() && frontIsClear()。",hint:"5回 move() します。各移動後に if (onGem() && frontIsClear()) { collect(); } を入れます。",code:"for (let i = 0; i < 5; i++) {\n  move();\n  if (onGem() && frontIsClear()) {\n    // 宝石を拾おう\n  }\n}"},
+ {name:"変数で歩数を決める",desc:"<b>let</b> で変数 distance を作り、その値を for の回数に使おう。",start:[1, 5, 1],goal:[5, 5],gems:[[3, 5], [5, 5]],walls:[[6, 5]],lesson:"let distance = 4; で数値を変数に記憶できます。for の条件 i < distance でも使用できます。",hint:"let distance = 4; を定義し for (let i = 0; i < distance; i++) で進もう。宝石なら collect()。",code:"let distance = 4;\n\nfor (let i = 0; i < distance; i++) {\n  // 1マス進む\n  // 宝石があれば拾う\n}"},
+ {name:"引数のある関数",desc:"<b>function walk(n)</b> を作ろう。右へ4歩、左に曲がって上へ3歩。",start:[0, 5, 1],goal:[4, 2],gems:[[2, 5], [4, 5], [4, 2]],walls:[[5, 5], [3, 4], [3, 3]],lesson:"function walk(n) では、n が引数です。walk(4) と walk(3) で同じ関数を異なる回数だけ使えます。",hint:"function walk(n) { for (let i=0; i<n; i++) { move(); if(onGem()){collect();} } } を定義。walk(4); turnLeft(); walk(3);",code:"function walk(n) {\n  for (let i = 0; i < n; i++) {\n    move();\n    // 宝石があれば拾う\n  }\n}\n\nwalk(4);\n// 左を向いて walk(3);"},
+ {name:"左のセンサーで曲がる",desc:"壁が続く通路を進み、<b>leftIsClear()</b> が true になった場所で左に曲がろう。",start:[0, 4, 1],goal:[5, 1],gems:[[2, 4], [5, 4], [5, 1]],walls:[[0, 3], [1, 3], [2, 3], [3, 3], [4, 3], [5, 0], [6, 4]],lesson:"leftIsClear() はロボットの左側が通れるか調べます。!leftIsClear() は「左側が壁」です。",hint:"while (!leftIsClear()) { move(); if (onGem()) collect(); } で左に道が開くまで進み、turnLeft() の後は上へ進もう。",code:"// 左側が壁のあいだ右へ進もう\nwhile (!leftIsClear()) {\n  move();\n  if (onGem()) { collect(); }\n}\n// 左を向き、通れる限り進もう"},
+ {name:"カウンターで数える",desc:"<b>count++</b> で宝石の数を数えよう。2つ拾えたら最後の宝石へ進もう。",start:[0, 2, 1],goal:[5, 2],gems:[[1, 2], [3, 2], [5, 2]],walls:[[6, 2]],lesson:"let count = 0; のあと count++; で1ずつ増やせます。count === 2 は「2と等しい？」という比較です。",hint:"まず4マス進んで、拾うたび count++。if (count === 2) { move(); collect(); } で最後を回収。",code:"let count = 0;\n\nfor (let i = 0; i < 4; i++) {\n  move();\n  if (onGem()) {\n    collect();\n    count++;\n  }\n}\n\nif (count === 2) {\n  // 最後の1歩と回収\n}"},
+ {name:"配列でルートを保存",desc:"<b>配列</b>に歩数 [3,2,3] を保存し、右→上→右の順で宝石を集めよう。",start:[0, 5, 1],goal:[6, 3],gems:[[3, 5], [3, 3], [6, 3]],walls:[[4, 5], [4, 4], [2, 4], [2, 3]],lesson:"const route = [3, 2, 3]; は配列です。route[0] は最初の3、route[1] は2。route.length は要素の数です。",hint:"function walk(n) を作り、walk(route[0]); turnLeft(); walk(route[1]); turnRight(); walk(route[2]);。",code:"const route = [3, 2, 3];\n\nfunction walk(n) {\n  for (let i = 0; i < n; i++) {\n    move();\n    if (onGem()) { collect(); }\n  }\n}\n\nwalk(route[0]);\n// 曲がって残りのルートを進もう"},
+ {name:"左右のセンサーで道探し",desc:"<b>leftIsClear()</b> と <b>rightIsClear()</b> で曲がる方向を判断し、7つの宝石を集めよう。",start:[0, 5, 1],goal:[5, 0],gems:[[1, 5], [2, 5], [2, 4], [2, 2], [4, 2], [5, 2], [5, 0]],walls:[[0, 4], [1, 4], [3, 5], [2, 1], [6, 2], [3, 4], [4, 4]],lesson:"左と右を調べるセンサーを使うと、通路の分岐を判断できます。自分の関数で同じ移動をまとめよう。",hint:"通路の端まで進む関数を作る。右2→上3→右3→上2。方向転換は if (leftIsClear()) と if (rightIsClear()) を使えます。",code:"function follow() {\n  while (frontIsClear()) {\n    move();\n    if (onGem()) { collect(); }\n  }\n}\n\nfollow();\nif (leftIsClear()) {\n  // 左へ向く\n}\n// 続きの通路も調べよう"},
+ {name:"最終試験：配列と関数",desc:"<b>配列・変数・関数・条件分岐・ループ</b>を総動員！ 6区間の迷路で7つの宝石を集めよう。",start:[0, 5, 1],goal:[6, 0],gems:[[1, 5], [1, 3], [3, 3], [4, 3], [4, 1], [6, 1], [6, 0]],walls:[[2, 5], [1, 2], [5, 3], [4, 0], [6, 2], [3, 4], [5, 4]],lesson:"route.length、route[leg]、%（余り）、===（等価）を組み合わせます。偶数区間は左、奇数区間は右に曲がります。",hint:"const route=[1,2,3,2,2,1]; walk(n) を作る。for(let leg=0;leg<route.length;leg++) { walk(route[leg]); if(leg<route.length-1){ if(leg%2===0){turnLeft();}else{turnRight();} } }",code:"const route = [1, 2, 3, 2, 2, 1];\n\nfunction walk(n) {\n  for (let i = 0; i < n; i++) {\n    move();\n    if (onGem()) { collect(); }\n  }\n}\n\nfor (let leg = 0; leg < route.length; leg++) {\n  // route[leg] マス進む\n  // 最後の区間以外では、偶数なら左・奇数なら右へ\n}"}
 ];
 const $=id=>document.getElementById(id);
 let stage=0, state=null, trace=null, traceIndex=0, timer=null, result=null;
@@ -53,103 +103,158 @@ function hasPair(arr,x,y){return arr.some(p=>p[0]===x&&p[1]===y)}
 function render(){let s=stages[stage];$('board').innerHTML='';for(let y=0;y<H;y++)for(let x=0;x<W;x++){let t=document.createElement('div');t.className='tile';if(hasPair(s.walls,x,y))t.classList.add('wall');if(s.goal[0]===x&&s.goal[1]===y){t.classList.add('goal');t.textContent='🏁'}if(hasPair(s.gems,x,y)&&!state.collected.includes(key(x,y))){t.classList.add('gem');t.textContent='💎'}if(x===state.x&&y===state.y){t.textContent='';let r=document.createElement('div');r.className='robot';r.textContent='🤖';t.appendChild(r);let arrow=document.createElement('span');arrow.className='arrow';arrow.textContent=ARROWS[state.d];t.appendChild(arrow)}$('board').appendChild(t)}$('counter').textContent=`${state.moves} ステップ`;}
 function setStatus(txt,tone=''){$('status').className='status '+tone;$('status').textContent=txt}
 function stop(){if(timer){clearInterval(timer);timer=null}}
-function reset(){stop();trace=null;result=null;traceIndex=0;state=cloneStart(stages[stage]);render();setStatus('コードを編集して「実行」を押そう。')}
+function reset(){stop();trace=null;result=null;traceIndex=0;state=cloneStart(stages[stage]);$('nextStage').hidden=true;render();setStatus('コードを編集して「実行」を押そう。')}
 let initialized=false;function selectStage(i,preserveCurrent=true){if(initialized&&preserveCurrent){codeByStage[stage]=$('code').value;save()}initialized=true;stage=i;stop();$('stageTitle').textContent=`ステージ ${i+1} — ${stages[i].name}`;$('stageDesc').innerHTML=stages[i].desc;const l=$('lesson');l.hidden=!stages[i].lesson;l.textContent=stages[i].lesson||'';$('hint').textContent=stages[i].hint;$('hint').classList.remove('show');$('hintButton').textContent='💡 ヒントを見る';$('code').value=typeof codeByStage[i]==='string'?codeByStage[i]:stages[i].code;reset();drawLevels()}
-function drawLevels(){$('levels').innerHTML='';stages.forEach((s,i)=>{let b=document.createElement('button');b.type='button';b.textContent=`${i+1} ${s.name}`;b.className=(i===stage?'active ':'')+(complete.has(i)?'complete':'');b.addEventListener('click',()=>selectStage(i));$('levels').appendChild(b)})}
+function drawLevels(){
+  $('levels').innerHTML='';
+  const picker=$('stagePicker');if(picker.options.length!==stages.length){picker.innerHTML='';stages.forEach((s,i)=>{const o=document.createElement('option');o.value=i;o.textContent=`${i+1}. ${s.name}`;picker.appendChild(o)})}
+  picker.value=String(stage);
+  stages.forEach((s,i)=>{const b=document.createElement('button');b.type='button';b.setAttribute('aria-label',`ステージ${i+1} ${s.name}`);b.title=`ステージ${i+1} ${s.name}`;const num=document.createElement('span');num.className='level-no';num.textContent=String(i+1);const label=document.createElement('span');label.className='level-name';label.textContent=s.name;b.append(num,label);b.className=(i===stage?'active ':'')+(complete.has(i)?'complete':'');b.addEventListener('click',()=>selectStage(i));$('levels').appendChild(b)});
+  $('progressText').textContent=`クリア ${complete.size}/20`;
+}
+$('stagePicker').addEventListener('change',e=>selectStage(Number(e.target.value)));
+$('nextStage').addEventListener('click',()=>{if(stage<stages.length-1)selectStage(stage+1)});
 function parseCode(text){
-  if(text.length>30000)throw Error('コードは3万文字までにしてください');
-  const src=text.replace(/\/\*[\s\S]*?\*\//g,'').replace(/\/\/[^\n]*/g,'');
-  let p=0;
-  const funcs=Object.create(null);
-  const reserved=new Set(['move','turnLeft','turnRight','collect','frontIsClear','onGem','for','if','else','while','function']);
-  const err=msg=>{throw Error(`コード ${p+1}文字目付近：${msg}`)};
-  function skip(){while(p<src.length&&/[\s;]/.test(src[p]))p++}
-  function matchWord(w){return src.slice(p,p+w.length)===w&&!/[\w$]/.test(src[p+w.length]||'')}
-  function paren(){skip();if(src[p]!=='(')err('「(」がありません');p++;const start=p;let d=1;while(p<src.length&&d){if(src[p]==='(')d++;if(src[p]===')')d--;p++}if(d)err('「)」がありません');return src.slice(start,p-1)}
-  function block(){skip();if(src[p]!=='{')err('「{」がありません');p++;const arr=list(true);skip();if(src[p]!=='}')err('「}」がありません');p++;return arr}
-  function condition(){const c=paren().replace(/\s/g,'');if(!/^(?:!)?(?:frontIsClear|onGem)\(\)$/.test(c))err('条件は frontIsClear() / onGem()（先頭に ! も可）を使ってください');return c}
-  function list(nested=false){
-    const out=[];
-    while(p<src.length){
-      skip();if(p>=src.length||src[p]==='}')break;
-      if(matchWord('function')){
-        if(nested)err('function の定義は一番外側に書いてください');
-        p+=8;skip();const m=src.slice(p).match(/^([A-Za-z_$][\w$]*)/);
-        if(!m)err('関数の名前を指定してください');
-        const name=m[1];p+=name.length;
-        if(reserved.has(name))err(`「${name}」は関数名に使えません`);
-        if(Object.prototype.hasOwnProperty.call(funcs,name))err('同じ関数名が重複しています');
-        if(Object.keys(funcs).length>=20)err('関数の数が多すぎます');
-        if(paren().trim()!=='')err('このゲームでは関数の引数は使えません');
-        funcs[name]=block();continue;
-      }
-      if(matchWord('for')){
-        p+=3;const header=paren();
-        const m=header.match(/^\s*let\s+([a-zA-Z_$][\w$]*)\s*=\s*0\s*;\s*\1\s*<\s*(\d+)\s*;\s*\1\s*\+\+\s*$/);
-        if(!m)err('for文は for (let i = 0; i < 4; i++) の形で書いてください');
-        const n=+m[2];if(n>80)err('for の繰り返しは80回までです');
-        out.push({t:'loop',n,body:block()});continue;
-      }
-      if(matchWord('while')){p+=5;const cond=condition();out.push({t:'while',cond,body:block()});continue}
-      if(matchWord('if')){p+=2;const cond=condition(),yes=block();skip();let no=[];if(matchWord('else')){p+=4;no=block()}out.push({t:'if',cond,yes,no});continue}
-      const m=src.slice(p).match(/^([a-zA-Z_$][\w$]*)\s*\(\s*\)/);
-      if(m){p+=m[0].length;const name=m[1];out.push(['move','turnLeft','turnRight','collect'].includes(name)?{t:'cmd',cmd:name}:{t:'call',name});continue}
-      err('対応していない命令です。move(), for, if, while, function などを確認してください');
-    }
-    if(!nested&&src[p]==='}')err('余分な「}」があります');
-    return out;
+  if(text.length>40000)throw Error('コードは4万文字までにしてください');
+  const tokens=[];let pos=0;
+  while(pos<text.length){
+    const s=text.slice(pos);
+    let m;
+    if((m=s.match(/^\s+/))){pos+=m[0].length;continue}
+    if(s.startsWith('//')){const n=s.indexOf('\n');pos+=n<0?s.length:n;continue}
+    if(s.startsWith('/*')){const n=s.indexOf('*/',2);if(n<0)throw Error('コメント */ がありません');pos+=n+2;continue}
+    if((m=s.match(/^[a-zA-Z_$][\w$]*/))||(m=s.match(/^\d+/))||(m=s.match(/^(?:===|!==|==|!=|<=|>=|&&|\|\||\+\+|--|\+=|-=|[+*\/%!<>=\-{}();,\[\].])/))){tokens.push(m[0]);pos+=m[0].length;continue}
+    throw Error(`コード ${pos+1}文字目付近に使えない記号があります`);
   }
-  const ast=list();skip();if(p<src.length)err('正しく閉じられていないブロックがあります');
-  function checkCalls(nodes){for(const n of nodes){if(n.t==='call'&&!Object.prototype.hasOwnProperty.call(funcs,n.name))throw Error(`関数 ${n.name}() が定義されていません`);if(n.t==='loop'||n.t==='while')checkCalls(n.body);if(n.t==='if'){checkCalls(n.yes);checkCalls(n.no)}}}
-  checkCalls(ast);Object.values(funcs).forEach(checkCalls);
-  return {ast,funcs};
+  let p=0;const funcs=Object.create(null);
+  const reserved=new Set(['move','turnLeft','turnRight','collect','frontIsClear','leftIsClear','rightIsClear','onGem','onGoal','for','if','else','while','function','let','const','true','false']);
+  const sensors=new Set(['frontIsClear','leftIsClear','rightIsClear','onGem','onGoal']);
+  function look(){return tokens[p]}
+  function take(expected){if(expected!==undefined&&look()!==expected)throw Error(`「${expected}」が必要です（${look()||'コード末尾'} の付近）`);return tokens[p++]}
+  function isIdent(s){return typeof s==='string'&&/^[A-Za-z_$][\w$]*$/.test(s)}
+  function name(){const n=take();if(!isIdent(n)||reserved.has(n))throw Error(`「${n||''}」は変数・関数名に使えません`);return n}
+  const prec={'||':1,'&&':2,'===':3,'!==':3,'==':3,'!=':3,'<':4,'>':4,'<=':4,'>=':4,'+':5,'-':5,'*':6,'/':6,'%':6};
+  function expression(min=1){
+    let lhs,word=look();
+    if(word==='!'||word==='-'){take();lhs={t:'unary',op:word,v:expression(7)}}
+    else if(word==='('){take('(');lhs=expression();take(')')}
+    else if(word==='['){take('[');const items=[];while(look()!==']'){items.push(expression());if(look()===',')take(',');else break;if(items.length>50)throw Error('配列は50個までです')}take(']');lhs={t:'array',items}}
+    else if(/^\d+$/.test(word||'')){take();lhs={t:'lit',v:Number(word)}}
+    else if(word==='true'||word==='false'){take();lhs={t:'lit',v:word==='true'}}
+    else if(isIdent(word)){const id=take();if(look()==='('){take('(');const args=[];while(look()!==')'){args.push(expression());if(look()===',')take(',');else break}take(')');lhs={t:'exprCall',name:id,args}}else lhs={t:'get',name:id}}
+    else throw Error(`値または条件が必要です（${word||'コード末尾'} の付近）`);
+    while(true){if(look()==='['){take('[');lhs={t:'index',arr:lhs,index:expression()};take(']');continue}if(look()==='.'){take('.');if(take()!=='length')throw Error('配列では .length のみ使えます');lhs={t:'len',arr:lhs};continue}break}
+    while(prec[look()]!==undefined&&prec[look()]>=min){const op=take(),rhs=expression(prec[op]+1);lhs={t:'bin',op,lhs,rhs}}
+    return lhs;
+  }
+  function optionalSemicolon(){if(look()===';')take(';')}
+  function block(){take('{');const nodes=statements(false);take('}');return nodes}
+  function statements(top){const nodes=[];
+    while(p<tokens.length&&look()!=='}'){
+      const word=look();
+      if(word==='function'){
+        if(!top)throw Error('関数は一番外側で定義してください');take('function');const n=name();take('(');const params=[];while(look()!==')'){const arg=name();if(params.includes(arg))throw Error('関数の引数名が重複しています');params.push(arg);if(look()===',')take(',');else break}take(')');if(params.length>8)throw Error('引数は8個まで');if(funcs[n])throw Error('同じ名前の関数が重複しています');funcs[n]={params,body:block()};continue;
+      }
+      if(word==='if'){take('if');take('(');const test=expression();take(')');const yes=block();let no=[];if(look()==='else'){take('else');no=block()}nodes.push({t:'if',test,yes,no});continue}
+      if(word==='while'){take('while');take('(');const test=expression();take(')');nodes.push({t:'while',test,body:block()});continue}
+      if(word==='for'){
+        take('for');take('(');take('let');const id=name();take('=');const init=expression();take(';');const test=expression();take(';');const incVar=take();if(incVar!==id)throw Error('for文では同じカウンター変数を使ってください');const op=take();if(!['++','--'].includes(op))throw Error('for文の更新は i++ または i-- を使ってください');take(')');nodes.push({t:'for',id,init,test,op,body:block()});continue;
+      }
+      if(word==='let'||word==='const'){const kind=take();const id=name();take('=');nodes.push({t:'var',id,value:expression(),constant:kind==='const'});optionalSemicolon();continue}
+      if(isIdent(word)){
+        const id=take();if(look()==='='||look()==='++'||look()==='--'||look()==='+='||look()==='-='){
+          const op=take();const val=['++','--'].includes(op)?null:expression();nodes.push({t:'assign',id,op,value:val});optionalSemicolon();continue;
+        }
+        take('(');const args=[];while(look()!==')'){args.push(expression());if(look()===',')take(',');else break}take(')');nodes.push({t:'call',name:id,args});optionalSemicolon();continue;
+      }
+      if(word===';'){take(';');continue}
+      throw Error(`この命令は使えません（${word||'コード末尾'} の付近）`);
+    }
+    return nodes;
+  }
+  const ast=statements(true);if(p<tokens.length)throw Error('余分な「}」があります');
+  function verify(nodes){for(const n of nodes){if(n.t==='call'&&!['move','turnLeft','turnRight','collect'].includes(n.name)&&!funcs[n.name])throw Error(`関数 ${n.name}() が定義されていません`);if(n.t==='if'){verify(n.yes);verify(n.no)}if(n.t==='while'||n.t==='for')verify(n.body)}}
+  verify(ast);Object.values(funcs).forEach(f=>verify(f.body));
+  return{ast,funcs};
 }
 function simulate(program){
   const s=stages[stage],st=cloneStart(s),frames=[];let count=0,failed=null;
   const blocked=(x,y)=>x<0||x>=W||y<0||y>=H||hasPair(s.walls,x,y);
-  function cond(c){const not=c.startsWith('!'),name=not?c.slice(1):c;const val=name.startsWith('front')?!blocked(st.x+DIRS[st.d][0],st.y+DIRS[st.d][1]):hasPair(s.gems,st.x,st.y)&&!st.collected.includes(key(st.x,st.y));return not?!val:val}
-  function doNodes(nodes,stack=[]){
+  const root={parent:null,vars:Object.create(null),immutable:new Set()};
+  function child(parent){return{parent,vars:Object.create(null),immutable:new Set()}}
+  function getVar(env,n){for(let e=env;e;e=e.parent){if(Object.prototype.hasOwnProperty.call(e.vars,n))return e.vars[n]}throw Error(`変数 ${n} が定義されていません`)}
+  function putVar(env,n,val,constant=false){if(Object.prototype.hasOwnProperty.call(env.vars,n))throw Error(`変数 ${n} はすでに定義されています`);env.vars[n]=val;if(constant)env.immutable.add(n)}
+  function changeVar(env,n,op,value){for(let e=env;e;e=e.parent){if(Object.prototype.hasOwnProperty.call(e.vars,n)){if(e.immutable.has(n))throw Error(`const ${n} は変更できません`);const prev=e.vars[n];const v=op==='++'?Number(prev)+1:op==='--'?Number(prev)-1:op==='+='?Number(prev)+Number(value):op==='-='?Number(prev)-Number(value):value;if(!Number.isFinite(v)&&typeof v==='number')throw Error('数字が大きすぎます');e.vars[n]=v;return}}throw Error(`変数 ${n} が定義されていません`)}
+  function sensor(name){
+    if(name==='onGem')return hasPair(s.gems,st.x,st.y)&&!st.collected.includes(key(st.x,st.y));
+    if(name==='onGoal')return st.x===s.goal[0]&&st.y===s.goal[1];
+    let d=st.d;if(name==='leftIsClear')d=(d+3)%4;else if(name==='rightIsClear')d=(d+1)%4;else if(name!=='frontIsClear')throw Error(`式の中では ${name}() を使えません`);
+    return !blocked(st.x+DIRS[d][0],st.y+DIRS[d][1]);
+  }
+  function evalExpr(node,env){
+    switch(node.t){
+      case 'lit':return node.v;
+      case 'get':return getVar(env,node.name);
+      case 'array':return node.items.map(item=>evalExpr(item,env));
+      case 'index':{const a=evalExpr(node.arr,env),i=evalExpr(node.index,env);if(!Array.isArray(a)||!Number.isInteger(i)||i<0||i>=a.length)throw Error('配列の番号が範囲外です');return a[i]}
+      case 'len':{const a=evalExpr(node.arr,env);if(!Array.isArray(a))throw Error('.length は配列に使ってください');return a.length}
+      case 'exprCall':if(node.args.length)throw Error('センサーの括弧は空にしてください');return sensor(node.name);
+      case 'unary':return node.op==='!'?!evalExpr(node.v,env):-Number(evalExpr(node.v,env));
+      case 'bin':{
+        const a=evalExpr(node.lhs,env);
+        if(node.op==='&&')return a&&evalExpr(node.rhs,env);
+        if(node.op==='||')return a||evalExpr(node.rhs,env);
+        const b=evalExpr(node.rhs,env);
+        switch(node.op){case '+':return a+b;case '-':return a-b;case '*':return a*b;case '/':return a/b;case '%':return a%b;case '<':return a<b;case '<=':return a<=b;case '>':return a>b;case '>=':return a>=b;case '===':return a===b;case '!==':return a!==b;case '==':return a==b;case '!=':return a!=b;}
+      }
+    }
+    throw Error('対応しない式が見つかりました');
+  }
+  function execute(nodes,env,stack=[]){
     for(const node of nodes){
       if(failed)return;
-      if(++count>1800){failed='処理回数が多すぎます（1800回まで）。whileの条件を確認してください。';return}
-      if(node.t==='loop'){
-        for(let i=0;i<node.n;i++){doNodes(node.body,stack);if(failed)break}continue;
-      }
-      if(node.t==='while'){
-        let repeats=0;
-        while(!failed&&cond(node.cond)){
-          if(++repeats>250){failed='whileが終わりません。中で進むなど、条件を変える必要があります。';break}
-          doNodes(node.body,stack);
+      if(++count>6500){failed='命令の処理が多すぎます（6500回まで）。繰り返しを見直してください。';return}
+      if(node.t==='var'){putVar(env,node.id,evalExpr(node.value,env),node.constant);continue}
+      if(node.t==='assign'){changeVar(env,node.id,node.op,node.value?evalExpr(node.value,env):undefined);continue}
+      if(node.t==='if'){execute(evalExpr(node.test,env)?node.yes:node.no,child(env),stack);continue}
+      if(node.t==='while'){let i=0;while(!failed&&evalExpr(node.test,env)){if(++i>300){failed='whileが終わりません（300回まで）。条件を変える命令を入れましょう。';break}execute(node.body,child(env),stack)}continue}
+      if(node.t==='for'){
+        const e=child(env);putVar(e,node.id,evalExpr(node.init,env));let i=0;
+        while(!failed&&evalExpr(node.test,e)){
+          if(++i>300){failed='forが終わりません（300回まで）。';break}
+          execute(node.body,child(e),stack);
+          if(!failed)changeVar(e,node.id,node.op);
         }
         continue;
       }
-      if(node.t==='if'){doNodes(cond(node.cond)?node.yes:node.no,stack);continue}
-      if(node.t==='call'){
-        if(stack.includes(node.name)||stack.length>=12){failed='関数の再帰呼び出しは、このゲームでは使えません。';return}
-        doNodes(program.funcs[node.name],[...stack,node.name]);continue;
+      if(node.t==='call'&&program.funcs[node.name]){
+        if(stack.includes(node.name)||stack.length>10){failed='関数の再帰呼び出しは、このゲームでは使えません。';return}
+        const fn=program.funcs[node.name],args=node.args.map(v=>evalExpr(v,env));if(fn.params.length!==args.length)throw Error(`${node.name}() は引数を ${fn.params.length} 個指定してください`);
+        const fnEnv=child(root);for(let i=0;i<args.length;i++)putVar(fnEnv,fn.params[i],args[i]);execute(fn.body,fnEnv,[...stack,node.name]);continue;
       }
+      if(node.t!=='call'||node.args.length)throw Error('移動命令には引数を指定しないでください');
       let msg='';
-      if(node.cmd==='move'){
+      if(node.name==='move'){
         const x=st.x+DIRS[st.d][0],y=st.y+DIRS[st.d][1];
         if(blocked(x,y)){failed='壁またはフィールド外です。ルートを見直そう。';msg='⛔ '+failed}
         else{st.x=x;st.y=y;st.moves++;msg='1マス進みました'}
-      }else if(node.cmd==='turnLeft'){st.d=(st.d+3)%4;msg='左を向きました'}
-      else if(node.cmd==='turnRight'){st.d=(st.d+1)%4;msg='右を向きました'}
-      else if(node.cmd==='collect'){
+      }else if(node.name==='turnLeft'){st.d=(st.d+3)%4;msg='左を向きました'}
+      else if(node.name==='turnRight'){st.d=(st.d+1)%4;msg='右を向きました'}
+      else if(node.name==='collect'){
         if(!hasPair(s.gems,st.x,st.y)||st.collected.includes(key(st.x,st.y))){failed='ここには拾える宝石がありません。';msg='⛔ '+failed}
         else{st.collected.push(key(st.x,st.y));msg='💎 宝石を拾いました！'}
-      }
+      }else throw Error(`命令 ${node.name}() は実行できません`);
+      if(frames.length>400){failed='ロボットの動作が多すぎます（400手まで）。';return}
       frames.push({state:{...st,collected:[...st.collected]},msg,bad:!!failed});
-      if(failed)return;
     }
   }
-  doNodes(program.ast);
+  try{execute(program.ast,root)}catch(e){failed=e.message}
   const win=!failed&&st.x===s.goal[0]&&st.y===s.goal[1]&&st.collected.length===s.gems.length;
   const ending=failed?{msg:'⛔ '+failed,tone:'bad'}:win?{msg:'🎉 クリア！ すべての条件を達成しました。次のステージにも挑戦しよう！',tone:'good'}:{msg:`あと少し！ 宝石 ${st.collected.length}/${s.gems.length} 個。🏁 ゴールまでコードを追加してみよう。`,tone:''};
   return {frames,ending,win};
 }
 function prepare(){stop();let ast;try{ast=parseCode($('code').value)}catch(e){setStatus('⚠️ '+e.message,'bad');return false}state=cloneStart(stages[stage]);render();trace=simulate(ast);traceIndex=0;result=trace.ending;return true}
-function finish(){setStatus(result.msg,result.tone);if(trace.win){complete.add(stage);drawLevels();save()}}
+function finish(){setStatus(result.msg,result.tone);if(trace.win){complete.add(stage);drawLevels();save();$('nextStage').hidden=stage>=stages.length-1}}
 function advance(){if(!trace)return false;if(traceIndex>=trace.frames.length){finish();return false}let item=trace.frames[traceIndex++];state={...item.state,collected:[...item.state.collected]};render();setStatus(item.msg,item.bad?'bad':'');if(traceIndex>=trace.frames.length){finish();return false}return true}
 $('run').addEventListener('click',()=>{if(!prepare())return;setStatus('ロボットが動き始めます…');if(!trace.frames.length){finish();return}timer=setInterval(()=>{if(!advance())stop()},330)});
 $('step').addEventListener('click',()=>{stop();if(!trace||traceIndex>=trace.frames.length){if(!prepare())return;if(!trace.frames.length){finish();return}}advance()});
@@ -177,7 +282,7 @@ document.querySelectorAll('[data-insert]').forEach(button => {
 $('saveFile').addEventListener('click',()=>{
   codeByStage[stage]=$('code').value;
   save();
-  const data=JSON.stringify({version:4,stage,complete:[...complete],codes:codeByStage},null,2);
+  const data=JSON.stringify({version:5,stage,complete:[...complete],codes:codeByStage},null,2);
   const url=URL.createObjectURL(new Blob([data],{type:'application/json'}));
   const link=document.createElement('a');link.href=url;link.download='Robot_Lab_Save.json';document.body.appendChild(link);link.click();link.remove();
   setTimeout(()=>URL.revokeObjectURL(url),3000);
