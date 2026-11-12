@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>JavaScript Robot Lab — ステージ1〜20（画面分割・iPhone・iPad対応）</title>
+<title>JavaScript Robot Lab — ステージ1〜30（画面分割・iPhone・iPad対応）</title>
 <style>
 :root{color-scheme:dark;--bg:#071421;--panel:#102235;--line:#264258;--text:#edf5fc;--muted:#9db4c6;--aqua:#4ee1c0;--gold:#ffcd6e;--red:#ff8f93}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top right,#17334d 0%,var(--bg) 58%);color:var(--text);font-family:system-ui,-apple-system,'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;line-height:1.55}.wrap{max-width:1110px;margin:auto;padding:22px 16px 38px}.head{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;margin-bottom:16px}.head h1{font-size:clamp(23px,3vw,32px);margin:0;font-weight:800;letter-spacing:.01em}.head p{margin:4px 0;color:var(--muted);font-size:14px}.chip{border:1px solid #427b78;color:#aef5e1;padding:5px 12px;border-radius:99px;font-size:12px;white-space:nowrap}.levels{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:16px}.levels button{flex:1;min-width:75px;color:#b8cede;border:1px solid var(--line);background:#132a3f;border-radius:11px;padding:9px 12px;cursor:pointer;font:inherit;font-size:13px}.levels button.active{background:#176a6c;color:#fff;border-color:#5fe6cd}.levels button.complete:after{content:' ★';color:var(--gold)}.layout{display:grid;grid-template-columns:minmax(310px,0.92fr) minmax(320px,1.08fr);gap:16px}.panel{background:rgba(16,34,53,.95);border:1px solid #2b4356;border-radius:17px;padding:17px;box-shadow:0 18px 55px #020d17a6}.panel h2{margin:0 0 7px;font-size:20px}.small{font-size:13px;color:var(--muted)}.board{display:grid;gap:4px;margin:18px auto;max-width:410px;aspect-ratio:7/6;grid-template-columns:repeat(7,minmax(0,1fr));grid-template-rows:repeat(6,minmax(0,1fr));padding:7px;border:1px solid #315064;border-radius:13px;background:#071725}.tile{border-radius:6px;background:#1a3546;display:flex;align-items:center;justify-content:center;position:relative;font-size:clamp(18px,2.5vw,30px);user-select:none}.tile.wall{background:repeating-linear-gradient(135deg,#38566b 0 8px,#314a5c 8px 16px)}.tile.goal{box-shadow:inset 0 0 0 2px #59daba;background:#174a4b}.tile.gem{color:var(--gold)}.tile .robot{display:flex;align-items:center;justify-content:center;width:88%;height:88%;border-radius:10px;background:#b9f4e6;color:#07333a;box-shadow:0 0 17px #61d7bd66;font-size:clamp(16px,2.4vw,28px);font-weight:bold}.tile .arrow{position:absolute;top:-6px;right:-3px;color:#091e2a;background:var(--gold);border-radius:7px;font-size:11px;padding:1px 4px}.legend{display:flex;gap:13px;justify-content:center;flex-wrap:wrap;color:var(--muted);font-size:12px}.status{border-radius:12px;border:1px solid #34556b;background:#0c2030;padding:11px 12px;font-size:14px;min-height:47px;margin:13px 0;color:#bfeade}.status.bad{color:#ffd1d3;border-color:#82474f}.status.good{color:#bff5b5;border-color:#448b63}.codearea{width:100%;min-height:280px;background:#061622;color:#d5f7ef;border:1px solid #385e71;border-radius:12px;resize:vertical;outline:none;padding:15px;font:15px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;tab-size:2}.codearea:focus{border-color:var(--aqua);box-shadow:0 0 0 2px #4ee1c025}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.actions button,.hintbtn{cursor:pointer;font:inherit;border:1px solid #3d6776;background:#183347;color:var(--text);padding:9px 14px;border-radius:10px}.actions .main{background:#26a78f;border-color:#4cddbf;color:#032b2c;font-weight:800}.actions button:hover,.hintbtn:hover{filter:brightness(1.14)}.hint{margin-top:10px;padding:11px 12px;background:#122c3f;border-left:3px solid var(--gold);border-radius:6px;font-size:13px;color:#d9e5ed;display:none}.hint.show{display:block}.help{margin-top:16px;border-top:1px solid #2d485b;padding-top:12px}.help code,.small code{color:#7decd4;background:#092735;border-radius:5px;padding:2px 5px}.helpgrid{display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:12px;color:#cfdfeb}.helpgrid div{padding:6px 8px;background:#0b1e2b;border-radius:6px}.footer{margin:16px 0 0;font-size:12px;color:#869fae}.step{font-variant-numeric:tabular-nums;font-size:12px;color:#b3c7d6;margin-left:auto;align-self:center}@media(max-width:740px){.layout{grid-template-columns:1fr}.board{max-width:400px}.codearea{min-height:240px}.wrap{padding:12px}.panel{padding:14px}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
@@ -114,11 +114,23 @@ html{-webkit-text-size-adjust:100%} body{overscroll-behavior-y:contain}button{to
  .stage-intro h2{font-size:13px}
  .tile{font-size:12px}.tile .robot{font-size:12px}
 }
+
+/* Phase 2: selected-stage compact controls */
+.mobile-stage-picker{display:flex!important;align-items:center;gap:10px;margin:7px 0 10px}
+.mobile-stage-picker select{flex:1;min-width:0;max-width:100%;background:#183347;color:var(--text);border:1px solid #3d6776;border-radius:9px;padding:7px 10px;min-height:42px;font:inherit;font-size:14px}
+.levels{display:none!important}
+.labtools{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px;padding-top:8px;border-top:1px solid #36516b}
+.labtools button{font:inherit;font-size:12px;min-height:38px;border:1px solid #406c7a;background:#17384d;color:#d5f9ea;border-radius:8px;padding:6px 9px}
+.lab-confirm{display:flex;align-items:center;gap:8px;flex-basis:100%;font-size:12px;line-height:1.4;color:#dfecf5}
+.lab-confirm input{width:19px;height:19px;flex:none;accent-color:#26a78f}
+.lab-badge{color:var(--gold);font-size:11px;font-weight:700}
+.lab-log{white-space:pre-wrap;word-break:break-word;font:12px/1.5 ui-monospace,monospace;color:#c8e9e8;margin-top:7px;max-height:160px;overflow:auto;border-top:1px dashed #466278;padding-top:6px}
+@media(max-width:740px){.mobile-stage-picker{margin:5px 0 7px}.labtools button{font-size:11px;min-height:39px;padding:6px}.lab-log{font-size:10px}}
 </style>
 </head>
 <body>
 <main class="wrap">
-<header class="head"><div><h1>🤖 JavaScript Robot Lab</h1><p>JavaScriptの命令を入力して、ロボットを宝石とゴールへ導こう。</p></div><div class="chip">iPhone・iPad対応 · <span id="progressText">クリア 0/20</span></div></header>
+<header class="head"><div><h1>🤖 JavaScript Robot Lab</h1><p>JavaScriptの命令を入力して、ロボットを宝石とゴールへ導こう。</p></div><div class="chip">iPhone・iPad対応 · <span id="progressText">クリア 0/30</span></div></header>
 <div class="mobile-stage-picker"><label for="stagePicker">ステージを選択</label><select id="stagePicker" aria-label="ステージを選択"></select></div><nav class="levels" aria-label="ステージ選択" id="levels"></nav>
 <section class="stage-intro" aria-label="ステージの説明">
  <h2 id="stageTitle"></h2>
@@ -135,10 +147,10 @@ html{-webkit-text-size-adjust:100%} body{overscroll-behavior-y:contain}button{to
   <div id="hint" class="hint"></div>
  </section>
  <section class="panel" aria-label="JavaScriptプログラム編集">
-  <h2 class="pane-heading">⌨️ JavaScript入力</h2>
+  <h2 class="pane-heading" id="editorTitle">⌨️ JavaScript入力</h2>
   <textarea spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" id="code" class="codearea" aria-label="JavaScriptコード"></textarea>
   <div class="actions"><button class="main" id="run" type="button">▶ 実行</button><button id="step" type="button">↪ 1手ずつ</button><button id="reset" type="button">↺ リセット</button><button id="saveFile" type="button">⬇ セーブデータ</button><button id="loadFile" type="button">⬆ 読み込み</button><input id="loadInput" type="file" accept=".json,application/json" hidden><span id="counter" class="step">0 ステップ</span></div>
-  <div class="extras-title">タップで命令を追加</div>
+  <div class="labtools" id="labTools" hidden><button type="button" id="exportLab">⬇ 課題ファイル保存</button><button type="button" id="copyLab">コピー</button><label class="lab-confirm" id="gitConfirmRow" hidden><input id="gitConfirm" type="checkbox">GitHub上で必要な作業を実際に完了した（自己確認）</label></div><div id="labLog" class="lab-log" hidden></div><div class="extras-title" id="quickTitle">タップで命令を追加</div>
   <div class="quickbar" aria-label="命令入力ショートカット"><button type="button" data-insert="move();">move();</button><button type="button" data-insert="turnLeft();">turnLeft();</button><button type="button" data-insert="turnRight();">turnRight();</button><button type="button" data-insert="collect();">collect();</button><button type="button" data-insert="for (let i = 0; i &lt; 3; i++) {\n  move();\n}">for ループ</button><button type="button" data-insert="if (frontIsClear()) {\n  move();\n}">if 文</button><button type="button" data-insert="if (onGem()) {\n  collect();\n}">宝石なら拾う</button><button type="button" data-insert="while (frontIsClear()) {\n  move();\n}">while 文</button><button type="button" data-insert="if (onGem()) {\n  collect();\n} else {\n  move();\n}">if / else</button><button type="button" data-insert="function walk() {\n  move();\n}\nwalk();">function</button><button type="button" data-insert="let steps = 3;">let 変数</button><button type="button" data-insert="function walk(n) {\n  for (let i = 0; i &lt; n; i++) {\n    move();\n  }\n}\nwalk(3);">関数の引数</button><button type="button" data-insert="const route = [1, 2, 3];">配列</button></div>
   <details class="help"><summary>命令早見表を開く</summary><div class="helpgrid"><div><code>move();</code> 1マス進む</div><div><code>turnLeft();</code> 左を向く</div><div><code>turnRight();</code> 右を向く</div><div><code>collect();</code> 宝石を拾う</div><div><code>frontIsClear()</code> 前が空いている？</div><div><code>onGem()</code> 宝石の上？</div><div><code>while (...)</code> 条件中くり返す</div><div><code>function name()</code> 自分の命令を作る</div><div><code>leftIsClear()</code> 左が空いている？</div><div><code>rightIsClear()</code> 右が空いている？</div><div><code>let n = 4;</code> 変数を作る</div><div><code>n++;</code> 数を1増やす</div><div><code>function walk(n)</code> 引数付き関数</div><div><code>[1, 2, 3]</code> 配列</div></div><p class="small">for、while、if/else、functionなどが使えます。ゲーム用の安全な学習環境なので、JavaScriptの全構文には対応していません。</p></details>
  </section>
@@ -169,6 +181,18 @@ const stages=[
  {name:"左右のセンサーで道探し",desc:"<b>leftIsClear()</b> と <b>rightIsClear()</b> で曲がる方向を判断し、7つの宝石を集めよう。",start:[0, 5, 1],goal:[5, 0],gems:[[1, 5], [2, 5], [2, 4], [2, 2], [4, 2], [5, 2], [5, 0]],walls:[[0, 4], [1, 4], [3, 5], [2, 1], [6, 2], [3, 4], [4, 4]],lesson:"左と右を調べるセンサーを使うと、通路の分岐を判断できます。自分の関数で同じ移動をまとめよう。",hint:"通路の端まで進む関数を作る。右2→上3→右3→上2。方向転換は if (leftIsClear()) と if (rightIsClear()) を使えます。",code:"function follow() {\n  while (frontIsClear()) {\n    move();\n    if (onGem()) { collect(); }\n  }\n}\n\nfollow();\nif (leftIsClear()) {\n  // 左へ向く\n}\n// 続きの通路も調べよう"},
  {name:"最終試験：配列と関数",desc:"<b>配列・変数・関数・条件分岐・ループ</b>を総動員！ 6区間の迷路で7つの宝石を集めよう。",start:[0, 5, 1],goal:[6, 0],gems:[[1, 5], [1, 3], [3, 3], [4, 3], [4, 1], [6, 1], [6, 0]],walls:[[2, 5], [1, 2], [5, 3], [4, 0], [6, 2], [3, 4], [5, 4]],lesson:"route.length、route[leg]、%（余り）、===（等価）を組み合わせます。偶数区間は左、奇数区間は右に曲がります。",hint:"const route=[1,2,3,2,2,1]; walk(n) を作る。for(let leg=0;leg<route.length;leg++) { walk(route[leg]); if(leg<route.length-1){ if(leg%2===0){turnLeft();}else{turnRight();} } }",code:"const route = [1, 2, 3, 2, 2, 1];\n\nfunction walk(n) {\n  for (let i = 0; i < n; i++) {\n    move();\n    if (onGem()) { collect(); }\n  }\n}\n\nfor (let leg = 0; leg < route.length; leg++) {\n  // route[leg] マス進む\n  // 最後の区間以外では、偶数なら左・奇数なら右へ\n}"}
 ];
+stages.push(
+{"name": "JSON入門：宝石の位置", "lab": "json", "desc": "<b>JSON</b>の<code>gems</code>を編集。宝石を (2,3) から <b>(3,3)</b> に動かしてマップを適用しよう。", "start": [0, 3, 1], "goal": [6, 3], "gems": [[2, 3]], "walls": [], "hint": "JSONの gems にある [2, 3] を [3, 3] に変更。ダブルクォートとカンマに注意！", "lesson": "JSONはデータを保存・交換する形式です。{}がオブジェクト、[]が配列。x座標が右方向、y座標が下方向です。正しく入力して実行するとマップが実際に変わり、ロボットが自動走行します。", "code": "{\n  \"name\": \"Stage 21 Map\",\n  \"start\": [\n    0,\n    3,\n    1\n  ],\n  \"goal\": [\n    6,\n    3\n  ],\n  \"gems\": [\n    [\n      2,\n      3\n    ]\n  ],\n  \"walls\": []\n}"},
+{"name": "JSON応用：地図の設計", "lab": "json", "desc": "宝石を (5,4)→<b>(6,4)</b> に移動し、壁 <b>[4,4]</b> を追加。障害物を避けられるマップを作ろう。", "start": [0, 4, 1], "goal": [6, 4], "gems": [[3, 2], [5, 4]], "walls": [[2, 4]], "hint": "gems の [5,4] を [6,4] に変更。walls 配列にカンマと [4,4] を追加。例：\"walls\": [[2,4],[4,4]]", "lesson": "JSONのネストした配列（座標のリスト）を編集し、実際にルートが存在するかゲームが探索して確かめます。完成したJSONはファイルとして書き出せます。", "code": "{\n  \"name\": \"Stage 22 Maze\",\n  \"start\": [\n    0,\n    4,\n    1\n  ],\n  \"goal\": [\n    6,\n    4\n  ],\n  \"gems\": [\n    [\n      3,\n      2\n    ],\n    [\n      5,\n      4\n    ]\n  ],\n  \"walls\": [\n    [\n      2,\n      4\n    ]\n  ]\n}"},
+{"name": "API入門：fetchで受信", "lab": "api", "desc": "基地局からJSONマップを取得。<code>fetch()</code> のファイル名を直して通信しよう。<b>GitHub Pagesかローカルサーバー</b>で試そう。", "start": [0, 2, 1], "goal": [6, 2], "gems": [[2, 2], [5, 2]], "walls": [], "hint": "ファイル名の -missing を削除して maps/stage23.json にします。fetch()のパスを修正した後に実行。", "lesson": "fetch() はHTTPリクエストを送るブラウザAPIです。このステージでは入力したfetchのURLを検査し、ゲーム本体が本当にHTTPでJSONを取得します。HTMLをfile://で直接開いた場合は動きません。", "code": "fetch(\"maps/stage23-missing.json\");"},
+{"name": "API応用：通信エラー", "lab": "api", "desc": "<code>async / await</code>、<code>response.ok</code>、<code>response.json()</code> を確認。URLとエラー条件の2か所を修正しよう。", "start": [0, 5, 1], "goal": [6, 3], "gems": [[3, 5], [6, 3]], "walls": [[4, 5], [4, 4]], "hint": "fetch のURLを maps/stage24.json に直し、if (response.ok) を if (!response.ok) に修正。", "lesson": "HTTP 200ならresponse.okがtrue、404ならfalseです。! を付けると「成功していない場合」を表せます。実行するのは検査されたテンプレートと同等のゲーム内通信処理で、任意のJavaScript全体を実行するものではありません。", "code": "async function loadMap() {\n  const response = await fetch(\"maps/stage24-missing.json\");\n  if (response.ok) {\n    throw new Error(\"HTTP error\");\n  }\n  const map = await response.json();\n  return map;\n}"},
+{"name": "デバッグ入門：拾う位置", "lab": "debug", "desc": "ロボットが宝石を拾う位置を間違えています。<b>collect()</b> の位置を直してクリアしよう。", "start": [0, 3, 1], "goal": [4, 3], "gems": [[2, 3]], "walls": [], "hint": "宝石は右へ2歩目。3歩進んでから拾うと、そこには宝石がありません。実行結果と「1手ずつ」を見比べよう。", "lesson": "バグとはプログラムの不具合。実行→状況確認→原因推測→修正→再実行という流れがデバッグです。「1手ずつ」実行して失敗する場所を探しましょう。", "code": "// collect() の位置が間違っている\nmove();\nmove();\nmove();\ncollect();\nmove();"},
+{"name": "デバッグ応用：回数のバグ", "lab": "debug", "desc": "<b>while と for</b> を使った自動走行にミスがあります。2つの宝石とゴールまでのループ回数を修正しよう。", "start": [0, 4, 1], "goal": [4, 2], "gems": [[2, 4], [4, 4], [4, 2]], "walls": [[5, 4]], "hint": "最初のwhileは壁の手前で止まります。左を向いた後、上へは何マス必要でしょう？ for の i < 3 を見直そう。", "lesson": "オフバイワン（off-by-one）はループの回数が1回多い・少ないバグです。経路と回数を調べ、必要な数だけ実行するように変更します。", "code": "// ループの回数を調べて直そう\nwhile (frontIsClear()) {\n  move();\n  if (onGem()) { collect(); }\n}\nturnLeft();\nfor (let i = 0; i < 3; i++) {\n  move();\n  if (onGem()) { collect(); }\n}"},
+{"name": "TypeScript入門：型を直す", "lab": "ts", "desc": "ロボットの <code>energy</code> の型が合いません。<b>number と string</b> の違いを見つけよう。", "start": [0, 3, 1], "goal": [3, 3], "gems": [[3, 3]], "walls": [], "hint": "energy は100という数値。Robot型の energy: string を energy: number に変更します。", "lesson": "TypeScriptはJavaScriptに型チェックを加えた言語です。この課題はTypeScriptコンパイラで実際の型チェックを行います。GitHub用ZIPのvendor/typescript.jsが必要です。", "code": "type Robot = {\n  x: number;\n  y: number;\n  energy: string;\n};\n\nconst robot: Robot = {\n  x: 0, y: 3, energy: 100\n};"},
+{"name": "TypeScript応用：関数の型", "lab": "ts", "desc": "<code>interface</code> と引数・戻り値の型を使います。<code>moveRobot(start, \"3\")</code> にある型の間違いを修正しよう。", "start": [0, 3, 1], "goal": [3, 3], "gems": [[3, 3]], "walls": [], "hint": "steps: number と定義されているので、\"3\"は文字列です。moveRobot(start, 3) に直しましょう。", "lesson": "interfaceはオブジェクトの形を定義します。関数引数や戻り値を型で指定すれば、値の取り違えを開発中に検出できます。", "code": "type Direction = \"up\" | \"right\" | \"down\" | \"left\";\ninterface Robot {\n  x: number; y: number;\n  energy: number; direction: Direction;\n}\nfunction moveRobot(robot: Robot, steps: number): Robot {\n  return { ...robot, x: robot.x + steps, energy: robot.energy - steps };\n}\nconst start: Robot = { x: 0, y: 3, energy: 10, direction: \"right\" };\nconst next: Robot = moveRobot(start, \"3\");"},
+{"name": "GitHub入門：IssueとBranch", "lab": "github", "desc": "開発タスクをIssueにまとめ、<code>feature/</code> で始まるブランチ名を作ろう。実際の作業もGitHubで実践します。", "start": [0, 3, 1], "goal": [3, 3], "gems": [[2, 3]], "walls": [], "hint": "issueTitleを「Stage 29: ゲームの説明を改善」のように、branchを「feature/stage29-docs」のように変更。tasksを2つ以上書きましょう。", "lesson": "Issueは開発する課題の記録、Branchは独立した作業の枝です。ゲーム内の設定は下書きであり、GitHub上のIssueやBranchを自動作成するわけではありません。", "code": "{\n  \"issueTitle\": \"Stage 29:\",\n  \"branch\": \"main\",\n  \"tasks\": [\n    \"READMEを書く\"\n  ]\n}"},
+{"name": "GitHub応用：CIとPR", "lab": "github", "desc": "<b>GitHub Actions</b>の設定にPull Request、型チェック、テストを追加しよう。最後にGitHub上でワークフローを確認。", "start": [0, 3, 1], "goal": [6, 3], "gems": [[2, 3], [4, 3]], "walls": [], "hint": "on: の下に pull_request: を追加。stepsに - run: npm run typecheck と - run: npm test を追加しましょう。", "lesson": "CI（継続的インテグレーション）では、GitHubに変更を送るとテストを自動化できます。このエディターの判定は学習用の簡易チェックです。本物のActionsの成否はGitHubのActions画面で確認します。", "code": "name: Robot Lab CI\non:\n  push:\n    branches: [main]\njobs:\n  check:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/setup-node@v4\n        with:\n          node-version: '22'\n      - run: npm install\n      # ここに型チェックとテストを追加\n"}
+);
 const $=id=>document.getElementById(id);
 let stage=0, state=null, trace=null, traceIndex=0, timer=null, result=null;
 let saved={};try{saved=JSON.parse(localStorage.getItem('robot-lab-v2')||'{}')||{}}catch{}
@@ -188,7 +212,7 @@ function drawLevels(){
   const picker=$('stagePicker');if(picker.options.length!==stages.length){picker.innerHTML='';stages.forEach((s,i)=>{const o=document.createElement('option');o.value=i;o.textContent=`${i+1}. ${s.name}`;picker.appendChild(o)})}
   picker.value=String(stage);
   stages.forEach((s,i)=>{const b=document.createElement('button');b.type='button';b.setAttribute('aria-label',`ステージ${i+1} ${s.name}`);b.title=`ステージ${i+1} ${s.name}`;const num=document.createElement('span');num.className='level-no';num.textContent=String(i+1);const label=document.createElement('span');label.className='level-name';label.textContent=s.name;b.append(num,label);b.className=(i===stage?'active ':'')+(complete.has(i)?'complete':'');b.addEventListener('click',()=>selectStage(i));$('levels').appendChild(b)});
-  $('progressText').textContent=`クリア ${complete.size}/20`;
+  $('progressText').textContent=`クリア ${complete.size}/${stages.length}`;
 }
 $('stagePicker').addEventListener('change',e=>selectStage(Number(e.target.value)));
 $('nextStage').addEventListener('click',()=>{if(stage<stages.length-1)selectStage(stage+1)});
@@ -360,7 +384,7 @@ document.querySelectorAll('[data-insert]').forEach(button => {
 $('saveFile').addEventListener('click',()=>{
   codeByStage[stage]=$('code').value;
   save();
-  const data=JSON.stringify({version:5,stage,complete:[...complete],codes:codeByStage},null,2);
+  const data=JSON.stringify({version:6,stage,complete:[...complete],codes:codeByStage},null,2);
   const url=URL.createObjectURL(new Blob([data],{type:'application/json'}));
   const link=document.createElement('a');link.href=url;link.download='Robot_Lab_Save.json';document.body.appendChild(link);link.click();link.remove();
   setTimeout(()=>URL.revokeObjectURL(url),3000);
@@ -393,6 +417,198 @@ window.addEventListener('resize',syncEditorHeight);
 requestAnimationFrame(syncEditorHeight);
 // Initialize first stage. Preserve saved editor data for each stage.
 $('code').value='';selectStage(0);
+
+/* Phase 2 interactive labs — no arbitrary JS evaluation. */
+let labSession=0, labVerified=false;
+const oldSelectStage = selectStage;
+selectStage=function(i,preserveCurrent=true){
+  labSession++;
+  oldSelectStage(i,preserveCurrent);
+  labVerified=false;
+  const lab=stages[i].lab;
+  $('editorTitle').textContent=lab==='json'?'🧩 JSONマップ編集':lab==='api'?'📡 fetch通信の練習':lab==='ts'?'🔷 TypeScript編集':lab==='github'?'🐙 GitHubの課題':'⌨️ JavaScript入力';
+  $('run').textContent=lab==='json'?'▶ JSON適用・走行':lab==='api'?'▶ 通信・走行':lab==='ts'?'▶ 型チェック':lab==='github'?'▶ 課題をチェック':'▶ 実行';
+  $('labTools').hidden=!(lab&&lab!=='debug');
+  $('quickTitle').hidden=!!(lab&&lab!=='debug');
+  document.querySelector('.quickbar').hidden=!!(lab&&lab!=='debug');
+  $('step').hidden=!!(lab&&lab!=='debug');
+  $('exportLab').textContent=lab==='json'?'⬇ JSON書き出し':lab==='ts'?'⬇ .ts書き出し':lab==='github'?'⬇ 課題ファイル保存':'⬇ マップJSON';
+  $('gitConfirmRow').hidden=lab!=='github';
+  $('gitConfirm').checked=false;
+  $('labLog').hidden=true;
+  $('labLog').textContent='';
+  $('hint').textContent=stages[i].hint;
+  syncEditorHeight();
+  if(lab==='ts')warmTypeScript().catch(()=>{});
+};
+const oldFinish=finish;
+finish=function(){oldFinish();if(stages[stage].lab==='debug'){const lines=trace?.frames?.map((f,i)=>`${i+1}. (${f.state.x},${f.state.y}) ${ARROWS[f.state.d]} — ${f.msg}`)||[];$('labLog').textContent=lines.slice(-16).join('\n');$('labLog').hidden=!lines.length;}};
+
+function labFail(message){setStatus('⚠️ '+message,'bad');$('labLog').textContent=message;$('labLog').hidden=false;}
+function labInfo(message){setStatus(message);$('labLog').textContent=message;$('labLog').hidden=false;}
+function validXY(p){return Array.isArray(p)&&p.length===2&&Number.isInteger(p[0])&&Number.isInteger(p[1])&&p[0]>=0&&p[0]<W&&p[1]>=0&&p[1]<H}
+function checkMap(m){
+  if(!m||typeof m!=='object'||!Array.isArray(m.start)||m.start.length!==3||!validXY(m.start.slice(0,2))||![0,1,2,3].includes(m.start[2]))throw Error('startは [x, y, 向き(0〜3)] を指定してください');
+  if(!validXY(m.goal))throw Error('goalは [x, y] の形式で盤面内に指定してください');
+  for(const n of ['gems','walls'])if(!Array.isArray(m[n])||m[n].length>20||!m[n].every(validXY))throw Error(`${n}は座標の配列 [[x,y], ...] にしてください`);
+  const unique = arr => new Set(arr.map(p=>p.join(','))).size===arr.length;
+  if(!unique(m.gems)||!unique(m.walls))throw Error('宝石や壁が重複しています');
+  const wall=new Set(m.walls.map(p=>p.join(',')));
+  for(const p of [m.start.slice(0,2),m.goal,...m.gems])if(wall.has(p.join(',')))throw Error('壁とロボット・ゴール・宝石が重なっています');
+  return m;
+}
+function bfs(map,from,to){
+  const walls=new Set(map.walls.map(p=>p.join(',')));
+  const start=from.join(','),target=to.join(','),q=[from],seen=new Set([start]),parents=new Map();
+  for(let h=0;h<q.length;h++){
+    const [x,y]=q[h],k=`${x},${y}`;if(k===target){const path=[];let cur=k;while(cur!==start){const [a,b]=cur.split(',').map(Number);path.push([a,b]);cur=parents.get(cur)}return path.reverse()}
+    for(const [dx,dy] of DIRS){const xx=x+dx,yy=y+dy,key=`${xx},${yy}`;if(xx<0||xx>=W||yy<0||yy>=H||walls.has(key)||seen.has(key))continue;seen.add(key);parents.set(key,k);q.push([xx,yy])}
+  }
+  return null;
+}
+function buildAutoTrace(map){
+  let st={x:map.start[0],y:map.start[1],d:map.start[2],collected:[],moves:0};const frames=[];
+  const frame=message=>frames.push({state:{...st,collected:[...st.collected]},msg:message,bad:false});
+  const checkpoints=[...map.gems,map.goal];
+  for(const p of checkpoints){
+    const path=bfs(map,[st.x,st.y],p);if(!path)throw Error('宝石かゴールまでの道がありません。壁を配置し直してください');
+    for(const [x,y] of path){
+      const dx=x-st.x,dy=y-st.y,desired=DIRS.findIndex(a=>a[0]===dx&&a[1]===dy);
+      while(st.d!==desired){const delta=(desired-st.d+4)%4;if(delta===3){st.d=(st.d+3)%4;frame('左を向いた')}else{st.d=(st.d+1)%4;frame('右を向いた')}}
+      st.x=x;st.y=y;st.moves++;frame('自動走行：1マス進んだ');
+      if(map.gems.some(p=>p[0]===x&&p[1]===y)&&!st.collected.includes(`${x},${y}`)){st.collected.push(`${x},${y}`);frame('💎 宝石を回収した')}
+    }
+    if(map.gems.some(g=>g[0]===st.x&&g[1]===st.y)&&!st.collected.includes(`${st.x},${st.y}`)){st.collected.push(`${st.x},${st.y}`);frame('💎 宝石を回収した')}
+  }
+  return {frames,ending:{msg:'🎉 課題成功！ マップを読み込んで自動走行できました。',tone:'good'},win:true};
+}
+function playLabMap(map,message){
+  checkMap(map);
+  const trial=buildAutoTrace(map);
+  stop();trace=null;
+  const s=stages[stage];s.start=map.start.slice();s.goal=map.goal.slice();s.gems=map.gems.map(x=>x.slice());s.walls=map.walls.map(x=>x.slice());
+  state=cloneStart(s);render();trace=trial;traceIndex=0;result=trial.ending;
+  $('labLog').hidden=false;$('labLog').textContent=message;
+  setStatus(message);
+  if(!trace.frames.length){finish();return}
+  timer=setInterval(()=>{if(!advance())stop()},175);
+}
+function mapFromJSON(index){
+  let m;try{m=checkMap(JSON.parse($('code').value))}catch(e){throw Error('JSONエラー：'+e.message)}
+  if(index===20&&!(m.gems.length===1&&m.gems[0][0]===3&&m.gems[0][1]===3))throw Error('ステージ21：宝石を [3,3] に変更してください');
+  if(index===21&&!(m.gems.some(p=>p[0]===6&&p[1]===4)&&m.walls.some(p=>p[0]===4&&p[1]===4)))throw Error('ステージ22：宝石 [6,4] と壁 [4,4] が必要です');
+  return m;
+}
+const apiPath={22:'maps/stage23.json',23:'maps/stage24.json'};
+function apiInput(index){
+  const src=$('code').value;
+  const fetchm=src.match(/\bfetch\s*\(\s*["']([^"']+)["']\s*\)/);
+  if(!fetchm)throw Error('fetch("maps/...") の形でURLを指定しましょう');
+  const url=fetchm[1];
+  if(index===22&&!/^\s*fetch\s*\(\s*["'][^"']+["']\s*\)\s*;?\s*$/.test(src))throw Error('この入門問題では fetch("ファイル名"); の1行だけにしてください');
+  if(index===23){
+    if(!/async\s+function\s+loadMap\s*\(\s*\)/.test(src))throw Error('async function loadMap() が必要です');
+    if(!/const\s+response\s*=\s*await\s+fetch\s*\(/.test(src))throw Error('const response = await fetch(...) が必要です');
+    if(!/if\s*\(\s*!\s*response\.ok\s*\)/.test(src))throw Error('通信エラーの条件は if (!response.ok) です');
+    if(!/throw\s+new\s+Error\s*\(/.test(src))throw Error('通信エラー時は throw new Error(...) を使います');
+    if(!/await\s+response\.json\s*\(\s*\)/.test(src)||!/return\s+map\s*;?/.test(src))throw Error('await response.json() でデータを読んで return map しましょう');
+  }
+  if(url!==apiPath[index])throw Error(`HTTP 404：指定した「${url}」は課題のURLと違います。通信先を修正してください`);
+  return url;
+}
+let tsLoadPromise=null;
+function warmTypeScript(){if(window.ts)return Promise.resolve(window.ts);if(tsLoadPromise)return tsLoadPromise;
+  tsLoadPromise=new Promise((resolve,reject)=>{
+    let paths=['vendor/typescript.js','https://cdn.jsdelivr.net/npm/typescript@5.9.3/lib/typescript.js'];
+    function load(){if(!paths.length){reject(Error('TypeScriptコンパイラを読み込めません。GitHub用ZIPを公開してアクセスしてください'));return}
+      const s=document.createElement('script');s.src=paths.shift();s.onload=()=>window.ts?resolve(window.ts):load();s.onerror=()=>{s.remove();load()};document.head.appendChild(s)}load();
+  }).catch(e=>{tsLoadPromise=null;throw e});return tsLoadPromise;
+}
+function typeDiagnostics(source){
+  const compiler=window.ts, filename='exercise.ts',libname='mini-lib.d.ts';
+  const files={
+    [filename]:source,
+    [libname]:'interface Object {}\ninterface Function {}\ninterface CallableFunction {}\ninterface NewableFunction {}\ninterface IArguments { length: number; [index: number]: any; }\ninterface String {}\ninterface Number {}\ninterface Boolean {}\ninterface RegExp {}\ninterface Array<T> { length: number; [n: number]: T; }\n'
+  };
+  const options={noLib:true,noEmit:true,strict:true,target:compiler.ScriptTarget.ES2020};
+  const host={getDefaultLibFileName:()=>libname,getDirectories:()=>[],directoryExists:()=>true,writeFile:()=>{}};
+  host.fileExists=f=>Object.hasOwn(files,f);
+  host.readFile=f=>files[f];
+  host.getSourceFile=(f,languageVersion)=>Object.hasOwn(files,f)?compiler.createSourceFile(f,files[f],languageVersion,true):undefined;
+  host.getCurrentDirectory=()=>'/';host.getCanonicalFileName=f=>f;host.useCaseSensitiveFileNames=()=>true;
+  host.getNewLine=()=>'\n';host.writeFile=()=>{};
+  const program=compiler.createProgram(Object.keys(files),options,host);
+  return compiler.getPreEmitDiagnostics(program).map(d=>{
+    const where=d.file&&d.start!==undefined?d.file.getLineAndCharacterOfPosition(d.start):null;
+    return `${d.file?d.file.fileName+':':''}${where?where.line+1+'行目: ':''}${compiler.flattenDiagnosticMessageText(d.messageText,' ')}`;
+  });
+}
+function verifyTS(index,source){
+  if(index===26){if(!/type\s+Robot\s*=/.test(source)||!/energy\s*:\s*number/.test(source)||!/const\s+robot\s*:\s*Robot/.test(source))throw Error('Robot型のenergyをnumberにして、robot変数を宣言してください');}
+  if(index===27){if(!/interface\s+Robot/.test(source)||!/function\s+moveRobot\s*\(\s*robot\s*:\s*Robot\s*,\s*steps\s*:\s*number\s*\)\s*:\s*Robot/.test(source))throw Error('interface Robot と型付き関数 moveRobot(robot: Robot, steps: number): Robot を残してください');if(!/moveRobot\s*\(\s*start\s*,\s*3\s*\)/.test(source))throw Error('moveRobot(start, 3) と数値の3を渡しましょう');}
+  const issues=typeDiagnostics(source);if(issues.length)throw Error('TypeScriptの型チェックエラー：\n'+issues.slice(0,5).join('\n'));
+}
+function previewIssue(obj){return `# ${obj.issueTitle}\n\n## 作業内容\n${obj.tasks.map(x=>'- [ ] '+x).join('\n')}\n\n作業ブランチ: ${obj.branch}\n`}
+function verifyGithub(index,src){
+  if(index===28){let o;try{o=JSON.parse(src)}catch(e){throw Error('JSONとして書式が正しくありません：'+e.message)}
+    if(typeof o.issueTitle!=='string'||!/^Stage 29:\s*\S.{5,}/.test(o.issueTitle))throw Error('issueTitleは「Stage 29: ...」という具体的なタイトルにしましょう');
+    if(typeof o.branch!=='string'||!/^feature\/[a-z0-9][a-z0-9_-]+$/.test(o.branch))throw Error('branchは feature/stage29-docs のように設定してください');
+    if(!Array.isArray(o.tasks)||o.tasks.length<2||!o.tasks.every(s=>typeof s==='string'&&s.trim().length>=5))throw Error('tasksには具体的な作業を2件以上書いてください');
+    return previewIssue(o);
+  }
+  const lines=src.split(/\r?\n/);
+  const has=x=>lines.some(l=>x.test(l));
+  if(!has(/^name:\s*\S/))throw Error('name: にワークフロー名が必要です');
+  if(!has(/^on:\s*$/)||!has(/^\s{2}push:\s*$/)||!has(/^\s{2}pull_request:\s*$/))throw Error('on: の下に push: と pull_request: を設定してください');
+  if(!has(/^jobs:\s*$/)||!has(/^\s+check:\s*$/)||!has(/^\s+runs-on:\s*ubuntu-latest\s*$/))throw Error('jobs/check と runs-on: ubuntu-latest が必要です');
+  for(const [test,note] of [[/-\s*uses:\s*actions\/checkout@/, 'actions/checkout'],[/-\s*uses:\s*actions\/setup-node@/,'actions/setup-node'],[/-\s*run:\s*npm\s+install\s*$/,'npm install'],[/-\s*run:\s*npm\s+run\s+typecheck\s*$/,'npm run typecheck'],[/-\s*run:\s*npm\s+test\s*$/,'npm test']])if(!has(test))throw Error('手順が不足しています：'+note);
+  return src;
+}
+function downloadLab(name,source,type){const url=URL.createObjectURL(new Blob([source],{type}));const a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),3000)}
+function artifactForCurrent(){const src=$('code').value;
+  if(stage===20||stage===21)return {name:`stage${stage+1}.json`,source:JSON.stringify(mapFromJSON(stage),null,2),type:'application/json'};
+  if(stage===26||stage===27)return {name:`stage${stage+1}.ts`,source:src,type:'text/plain'};
+  if(stage===28)return {name:'stage29-issue.md',source:verifyGithub(stage,src),type:'text/markdown'};
+  if(stage===29)return {name:'robot-lab-ci.yml',source:verifyGithub(stage,src),type:'text/plain'};
+  return null;
+}
+$('exportLab').addEventListener('click',()=>{try{const a=artifactForCurrent();if(a)downloadLab(a.name,a.source,a.type);else setStatus('この課題ではGitHub用ZIPのmapsフォルダにサンプルを含めています。')}catch(e){labFail(e.message)}});
+$('copyLab').addEventListener('click',async()=>{try{const a=artifactForCurrent();const content=a?.source||$('code').value;if(navigator.clipboard?.writeText){await navigator.clipboard.writeText(content)}else{$('code').select();document.execCommand('copy')}setStatus('内容をコピーしました。','good')}catch(e){labFail('コピーできませんでした。選択して手動コピーしてください。')}});
+$('gitConfirm').addEventListener('change',()=>{if($('gitConfirm').checked&&labVerified&&stages[stage].lab==='github'){playLabMap(stages[stage],'GitHub上の操作は自己確認済み。ロボットを走らせます。')}});
+async function runLab(){
+  if(document.activeElement===$('code'))$('code').blur();
+  const i=stage,session=++labSession,lab=stages[i].lab;
+  try{
+    if(lab==='json'){
+      const m=mapFromJSON(i);playLabMap(m,'JSONを読み込みました。ロボットが新しいマップを自動走行します。');return;
+    }
+    if(lab==='api'){
+      const url=apiInput(i);
+      if(location.protocol==='file:')throw Error('ブラウザのfile://ではHTTP fetchが使えません。GitHub Pagesまたはローカルサーバーで開いてください');
+      labInfo(`📡 HTTP GET ${url} にアクセス中…`);
+      const res=await fetch(url,{cache:'no-store'});if(session!==labSession||stage!==i)return;
+      if(!res.ok)throw Error(`HTTP ${res.status}：ファイルが見つかりません`);
+      const m=checkMap(await res.json());if(stage!==i)return;
+      playLabMap(m,`📡 HTTP ${res.status} OK、JSONを受信しました。ロボットが走行します。`);return;
+    }
+    if(lab==='ts'){
+      labInfo('TypeScriptコンパイラを読み込み、実際に型チェックしています…');
+      await warmTypeScript();if(session!==labSession||stage!==i)return;
+      verifyTS(i,$('code').value);
+      playLabMap(stages[i], '✅ TypeScriptの型チェックに合格しました。ロボットが走行します。');return;
+    }
+    if(lab==='github'){
+      const artefact=verifyGithub(i,$('code').value);labVerified=true;
+      $('labLog').hidden=false;$('labLog').textContent=i===28?artefact:'✅ CI設定の学習用チェックが通りました。GitHubへファイルを保存し、Actions画面で実際の実行結果を確認しましょう。';
+      if($('gitConfirm').checked){playLabMap(stages[i],'自己確認完了。ロボットを走らせます。')}else setStatus('✅ 下書きチェック合格。次にGitHubで実際に作業し、下のチェックを入れてください。','good');return;
+    }
+  }catch(e){if(session===labSession&&stage===i)labFail(e.message)}
+}
+$('run').addEventListener('click',e=>{if(stage>=20&&stages[stage].lab!=='debug'){e.stopImmediatePropagation();runLab()}},true);
+$('step').addEventListener('click',e=>{if(stage>=20&&stages[stage].lab!=='debug'){e.stopImmediatePropagation()}},true);
+// Restore normal Stage 1–20 behavior and Stage 25/26 debugger behavior.
+selectStage(0,false);
+
 </script>
 </body>
 </html>
